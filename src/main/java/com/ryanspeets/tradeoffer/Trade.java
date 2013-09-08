@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import sun.plugin.dom.exception.InvalidStateException;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -165,8 +165,6 @@ public class Trade {
      */
     public void accept() throws Exception
     {
-        if(tradeId == 0)
-            throw new InvalidStateException("You can't accept a new trade");
         List<NameValuePair> data = new ArrayList<NameValuePair>();
         data.add(new BasicNameValuePair("sessionid", sessionId));
         data.add(new BasicNameValuePair("tradeofferid", Long.toString(tradeId)));
@@ -182,8 +180,6 @@ public class Trade {
      */
     public void decline() throws Exception
     {
-        if(tradeId == 0)
-            throw new InvalidStateException("You can't decline a new trade");
         List<NameValuePair> data = new ArrayList<NameValuePair>();
         data.add(new BasicNameValuePair("sessionid", sessionId));
 
