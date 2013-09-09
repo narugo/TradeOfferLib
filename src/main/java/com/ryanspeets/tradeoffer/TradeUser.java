@@ -81,9 +81,8 @@ public class TradeUser {
         }
 
         request.setHeader("Accept", "text/javascript, text/html, application/xml, text/xml, */*");
-        request.setHeader("ContentType", "application/x-www-form-urlencoded; charset=UTF-8");
+        request.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         request.setHeader("Host", "steamcommunity.com");
-        request.setHeader("UserAgent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.28 Safari/537.36");
         request.setHeader("Referer", "http://steamcommunity.com/tradeoffer/1");
 
         if (ajax)
