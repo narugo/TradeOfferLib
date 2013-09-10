@@ -13,6 +13,10 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.message.BasicNameValuePair;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import javax.crypto.Cipher;
 import javax.xml.bind.DatatypeConverter;
@@ -255,8 +259,22 @@ public class TradeUser {
         }
     }
 
-    public void listTrades()
+    public TradeOffer[] getIncomingTradeIds() throws IOException
     {
+        Document document = Jsoup.parse(fetch("http://steamcommunity.com/my/tradeoffers","GET",null,false));
+        Elements tradeOfferElements = document.getElementsByClass("tradeoffer");
 
+        ArrayList<TradeOffer> offers = new ArrayList<TradeOffer>();
+
+        for(Element tradeOfferElement : tradeOfferElements)
+        {
+
+            int id = Integer.parseInt(tradeOfferElement.id().substring(13)); // strip off tradeofferid_
+            boolean active = tradeOfferElement.getElementsByClass("tradeoffer_items_ctn").get(0).hasClass("active");
+            TradeOffer tradeOffer = new TradeOffer(id, active, this);
+            offers.add(tradeOffer);
+        }
+
+        return offers.toArray(new TradeOffer[offers.size()]);
     }
 }
