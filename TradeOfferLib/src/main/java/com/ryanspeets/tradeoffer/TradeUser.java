@@ -254,4 +254,9 @@ public class TradeUser {
             return false;
         }
     }
+
+    public void listTrades()
+    {
+
+    }
 }

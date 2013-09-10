@@ -3,6 +3,15 @@ TradeOfferLib
 
 TradeOfferLib is a Java library that allows you to create, counter-offer, accept and decline trade offers on Steam. It should work for item that is normally tradable via Steam.
 
+This library can:
+* Create trades
+* Modify incoming trades
+* Accept/Decline trades
+* List available inventories (That's right, it works with more than just TF2)
+* Iterate through the items in the inventory
+
+I don't have any games that use "currency" so I haven't been able to try trading that yet.
+
 Example usage:
 ```
 TradeUser bot = new TradeUser();
