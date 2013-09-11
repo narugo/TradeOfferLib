@@ -259,7 +259,7 @@ public class TradeUser {
         }
     }
 
-    public TradeOffer[] getIncomingTradeIds() throws IOException
+    public TradeOffer[] getIncomingTradeOffers() throws IOException
     {
         Document document = Jsoup.parse(fetch("http://steamcommunity.com/my/tradeoffers","GET",null,false));
         Elements tradeOfferElements = document.getElementsByClass("tradeoffer");

@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * NOTE!
+ *
+ * DO NOT USE THIS IN PRODUCTION! IT HAS NOT BEEN FULLY TESTED AND MAY CONTAIN BUGS
+ *
+ * For instance, items are not tested to see if they're craftable
+ *
+ */
+
 public class ScrapOffer {
     public static void main(String[] args) throws Exception
     {
@@ -20,7 +29,7 @@ public class ScrapOffer {
 
         while(true)
         {
-            TradeOffer[] tradeOffers = bot.getIncomingTradeIds();
+            TradeOffer[] tradeOffers = bot.getIncomingTradeOffers();
             for(TradeOffer tradeOffer : tradeOffers)
             {
                 if(tradeOffer.active)
